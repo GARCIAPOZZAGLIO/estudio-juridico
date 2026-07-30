@@ -118,7 +118,7 @@ export default function EstudioJuridico() {
 
   const handleConsultaSubmit = () => {
     if (formData.nombre && formData.email && formData.mensaje) {
-      setFormSent(true);
+      const texto=`*Nueva Consulta*%0A*Nombre:* ${encodeURIComponent(formData.nombre)}%0A*Email:* ${encodeURIComponent(formData.email)}%0A*Tel:* ${encodeURIComponent(formData.telefono)}%0A*Area:* ${encodeURIComponent(formData.area)}%0A*Consulta:* ${encodeURIComponent(formData.mensaje)}`;window.open(`https://wa.me/5491138207360?text=${texto}`,"_blank");setFormSent(true);
       setTimeout(() => setFormSent(false), 4000);
       setFormData({ nombre: "", email: "", telefono: "", mensaje: "", area: "penal" });
     }
@@ -126,7 +126,7 @@ export default function EstudioJuridico() {
 
   const handleTurnoSubmit = () => {
     if (turnoData.nombre && turnoData.telefono && turnoData.fecha) {
-      setTurnoSent(true);
+      const texto2=`*Turno*%0A*Nombre:* ${encodeURIComponent(turnoData.nombre)}%0A*Tel:* ${encodeURIComponent(turnoData.telefono)}%0A*Fecha:* ${encodeURIComponent(turnoData.fecha)}%0A*Hora:* ${encodeURIComponent(turnoData.hora)}%0A*Motivo:* ${encodeURIComponent(turnoData.motivo)}`;window.open(`https://wa.me/5491138207360?text=${texto2}`,"_blank");setTurnoSent(true);
       setTimeout(() => setTurnoSent(false), 4000);
       setTurnoData({ nombre: "", telefono: "", fecha: "", hora: "", motivo: "" });
     }
