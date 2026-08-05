@@ -67,6 +67,17 @@ export default function EstudioJuridico() {
   };
 
   useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (hash) {
+      const timer = setTimeout(() => {
+        const el = sectionRefs.current[hash];
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
