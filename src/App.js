@@ -85,14 +85,19 @@ export default function EstudioJuridico() {
     setMenuOpen(false);
     setActivePage(null);
     const el = sectionRefs.current[id];
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      window.history.pushState(null, "", id === "inicio" ? "/" : `/${id}`);
+    }
   };
 
   useEffect(() => {
+    const path = window.location.pathname.replace("/", "");
     const hash = window.location.hash.replace("#", "");
-    if (hash) {
+    const target = path || hash;
+    if (target) {
       const timer = setTimeout(() => {
-        const el = sectionRefs.current[hash];
+        const el = sectionRefs.current[target];
         if (el) el.scrollIntoView({ behavior: "smooth" });
       }, 500);
       return () => clearTimeout(timer);
@@ -103,7 +108,13 @@ export default function EstudioJuridico() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+            const newPath = entry.target.id === "inicio" ? "/" : `/${entry.target.id}`;
+            if (window.location.pathname !== newPath) {
+              window.history.replaceState(null, "", newPath);
+            }
+          }
         });
       },
       { threshold: 0.3 }
