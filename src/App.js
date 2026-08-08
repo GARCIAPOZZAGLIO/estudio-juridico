@@ -164,6 +164,7 @@ export default function EstudioJuridico() {
     if (formData.nombre && formData.email && formData.mensaje) {
       const areas = { penal: "Derecho Penal", civil: "Derecho Civil", familia: "Derecho de Familia", laboral: "Derecho Laboral", inmobiliario: "Derecho Inmobiliario", administrativo: "Derecho Administrativo" };
       const texto = `Hola, soy *${formData.nombre}*%0A📧 Email: ${formData.email}%0A📱 Tel: ${formData.telefono || "No indicado"}%0A⚖️ Área: ${areas[formData.area] || formData.area}%0A%0A📝 Consulta:%0A${formData.mensaje}`;
+      if (window.gtag_report_conversion) window.gtag_report_conversion();
       window.open(`https://wa.me/5491138207360?text=${texto}`, "_blank");
       setFormSent(true);
       setTimeout(() => setFormSent(false), 4000);
@@ -174,6 +175,7 @@ export default function EstudioJuridico() {
   const handleTurnoSubmit = () => {
     if (turnoData.nombre && turnoData.telefono && turnoData.fecha) {
       const texto = `Hola, quiero solicitar un *turno*%0A%0A👤 Nombre: *${turnoData.nombre}*%0A📱 Teléfono: ${turnoData.telefono}%0A📅 Fecha preferida: ${turnoData.fecha}%0A🕐 Horario: ${turnoData.hora || "A confirmar"}%0A%0A📝 Motivo:%0A${turnoData.motivo || "A definir en la consulta"}`;
+      if (window.gtag_report_conversion) window.gtag_report_conversion();
       window.open(`https://wa.me/5491138207360?text=${texto}`, "_blank");
       setTurnoSent(true);
       setTimeout(() => setTurnoSent(false), 4000);
@@ -865,6 +867,7 @@ export default function EstudioJuridico() {
 
       {/* ═══ WHATSAPP FLOATING BUTTON ═══ */}
       <a href="https://wa.me/5491138207360" target="_blank" rel="noopener noreferrer"
+        onClick={() => { if (window.gtag_report_conversion) window.gtag_report_conversion(); }}
         style={{
           position: "fixed", bottom: 24, right: 24, zIndex: 100,
           width: 60, height: 60, borderRadius: "50%",
