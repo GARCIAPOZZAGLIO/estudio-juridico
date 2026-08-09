@@ -164,7 +164,6 @@ export default function EstudioJuridico() {
     if (formData.nombre && formData.email && formData.mensaje) {
       const areas = { penal: "Derecho Penal", civil: "Derecho Civil", familia: "Derecho de Familia", laboral: "Derecho Laboral", inmobiliario: "Derecho Inmobiliario", administrativo: "Derecho Administrativo" };
       const texto = `Hola, soy *${formData.nombre}*%0A📧 Email: ${formData.email}%0A📱 Tel: ${formData.telefono || "No indicado"}%0A⚖️ Área: ${areas[formData.area] || formData.area}%0A%0A📝 Consulta:%0A${formData.mensaje}`;
-      if (window.gtag_report_conversion) window.gtag_report_conversion();
       window.open(`https://wa.me/5491138207360?text=${texto}`, "_blank");
       setFormSent(true);
       setTimeout(() => setFormSent(false), 4000);
@@ -175,7 +174,6 @@ export default function EstudioJuridico() {
   const handleTurnoSubmit = () => {
     if (turnoData.nombre && turnoData.telefono && turnoData.fecha) {
       const texto = `Hola, quiero solicitar un *turno*%0A%0A👤 Nombre: *${turnoData.nombre}*%0A📱 Teléfono: ${turnoData.telefono}%0A📅 Fecha preferida: ${turnoData.fecha}%0A🕐 Horario: ${turnoData.hora || "A confirmar"}%0A%0A📝 Motivo:%0A${turnoData.motivo || "A definir en la consulta"}`;
-      if (window.gtag_report_conversion) window.gtag_report_conversion();
       window.open(`https://wa.me/5491138207360?text=${texto}`, "_blank");
       setTurnoSent(true);
       setTimeout(() => setTurnoSent(false), 4000);
@@ -480,7 +478,7 @@ export default function EstudioJuridico() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
           {[
             { name: "Dr. Marcos Celso Iván García", role: "Socio Fundador", mat: "", desc: "Abogado penalista y civilista con amplia experiencia en la Justicia Ordinaria de la Provincia de Buenos Aires, en Nación y en el Fuero Federal. Especializado en defensa penal en juicios orales y recursos ante Cámara, Casación y recursos extraordinarios ante la CSJN." },
-            { name: "Procuradora Loreley Yasmín Pozzaglio", role: "Procuradora", mat: "", desc: "Abogada especialista en derecho penal con amplia trayectoria en todos los fueros del Poder Judicial. Responsable del área administrativa, consultoría y gestión del estudio. Coordinación de agenda, relación con clientes y supervisión de trámites extrajudiciales." },
+            { name: "Procuradora Loreley Yasmín Pozzaglio", role: "Procuradora", mat: "", desc: "Procuradora especialista en mediación, conciliación y acuerdos judiciales y extrajudiciales. Amplia experiencia en negociación de conflictos y resolución alternativa de disputas en todas las ramas del derecho. Responsable de la gestión integral del estudio, coordinación de agenda, seguimiento de causas, relación con clientes y supervisión de trámites administrativos y procesales." },
           ].map((p, i) => (
             <div key={i} style={{ background: BG_CARD, border: `1px solid ${BORDER}`, borderRadius: 12, padding: 32, transition: "border-color 0.3s" }}
               onMouseOver={e => e.currentTarget.style.borderColor = GOLD_DIM} onMouseOut={e => e.currentTarget.style.borderColor = BORDER}>
@@ -867,7 +865,6 @@ export default function EstudioJuridico() {
 
       {/* ═══ WHATSAPP FLOATING BUTTON ═══ */}
       <a href="https://wa.me/5491138207360" target="_blank" rel="noopener noreferrer"
-        onClick={() => { if (window.gtag_report_conversion) window.gtag_report_conversion(); }}
         style={{
           position: "fixed", bottom: 24, right: 24, zIndex: 100,
           width: 60, height: 60, borderRadius: "50%",
