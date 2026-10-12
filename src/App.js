@@ -59,6 +59,9 @@ export default function EstudioJuridico() {
   const [activeSection, setActiveSection] = useState("inicio");
   const [menuOpen, setMenuOpen] = useState(false);
   const [activePage, setActivePage] = useState(null);
+  const [landingPage, setLandingPage] = useState(null);
+  const [blogPost, setBlogPost] = useState(null);
+  const [lpFaqOpen, setLpFaqOpen] = useState(null);
   const [faqOpen, setFaqOpen] = useState(null);
   const [formData, setFormData] = useState({ nombre: "", email: "", telefono: "", mensaje: "", area: "penal" });
   const [turnoData, setTurnoData] = useState({ nombre: "", telefono: "", fecha: "", hora: "", motivo: "" });
@@ -158,9 +161,12 @@ export default function EstudioJuridico() {
   ];
 
   const blogPosts = [
-    { title: "Reforma del régimen locativo: DNU 70/2023", excerpt: "Análisis de los cambios en materia de alquileres y su impacto en locadores y locatarios bajo el nuevo marco normativo.", date: "Julio 2026", tag: "Civil" },
-    { title: "Juicio por jurados en Provincia de Buenos Aires", excerpt: "Claves del procedimiento ante el Tribunal en lo Criminal bajo la ley de juicio por jurados y estrategias de defensa.", date: "Junio 2026", tag: "Penal" },
-    { title: "Usucapión: requisitos y plazos actualizados", excerpt: "Guía práctica sobre prescripción adquisitiva de dominio según el Código Civil y Comercial vigente.", date: "Mayo 2026", tag: "Inmobiliario" },
+    { slug: "que-hacer-si-te-detienen", title: "¿Qué hacer si te detienen? Guía paso a paso", excerpt: "Conocé tus derechos ante una detención policial. Qué decir, qué no decir, y cuándo llamar a un abogado penalista.", date: "Octubre 2026", tag: "Penal", content: "Si te detienen, lo primero es mantener la calma. Tenés derecho a guardar silencio, a no declarar contra vos mismo y a contar con un abogado desde el primer momento. No firmes ningún documento sin que tu abogado lo revise. Contactá a un familiar o a tu abogado de confianza lo antes posible. En García Pozzaglio atendemos urgencias penales las 24 horas." },
+    { slug: "como-reclamar-seguro-accidente-transito", title: "¿Cómo reclamar al seguro por un accidente de tránsito?", excerpt: "Guía completa para reclamar la indemnización que te corresponde después de un siniestro vial.", date: "Septiembre 2026", tag: "Accidentes", content: "Después de un accidente de tránsito, es fundamental: 1) Hacer la denuncia policial. 2) Tomar fotos del lugar y los vehículos. 3) Recopilar datos de testigos. 4) Denunciar el siniestro ante la aseguradora del responsable. 5) NO aceptar la primera oferta del seguro sin consultar con un abogado. Las aseguradoras suelen ofrecer montos muy inferiores a lo que realmente corresponde." },
+    { slug: "mala-praxis-medica-como-reclamar", title: "Mala praxis médica: ¿cómo saber si tenés un caso?", excerpt: "Señales de negligencia médica y los pasos legales para reclamar una indemnización por mala praxis.", date: "Agosto 2026", tag: "Mala Praxis", content: "Existe mala praxis cuando un profesional de la salud no actuó con la diligencia que el caso requería, causando un daño que podría haberse evitado. Ejemplos: error de diagnóstico, negligencia quirúrgica, infecciones intrahospitalarias, falta de consentimiento informado. Para reclamar necesitás la historia clínica, estudios médicos y toda documentación. El plazo para reclamar es de 3 años." },
+    { slug: "danos-perjuicios-que-puedo-reclamar", title: "Daños y perjuicios: ¿qué rubros puedo reclamar?", excerpt: "Todos los conceptos indemnizatorios que podés reclamar cuando sufrís un daño: moral, patrimonial, psicológico.", date: "Julio 2026", tag: "Daños", content: "Cuando sufrís un daño injusto, podés reclamar: daño patrimonial (gastos médicos, reparaciones), lucro cesante (lo que dejaste de ganar), daño moral (sufrimiento y angustia), daño psicológico, incapacidad sobreviniente y pérdida de chance. Un abogado especialista evalúa tu caso y cuantifica cada rubro para maximizar tu indemnización." },
+    { slug: "juicio-por-jurados-provincia-buenos-aires", title: "Juicio por jurados en Provincia de Buenos Aires", excerpt: "Claves del procedimiento ante el Tribunal en lo Criminal bajo la ley de juicio por jurados y estrategias de defensa.", date: "Junio 2026", tag: "Penal", content: "El juicio por jurados en la Provincia de Buenos Aires se aplica a delitos con penas mayores a 15 años de prisión. Un jurado de 12 ciudadanos decide sobre la culpabilidad o inocencia del acusado. La estrategia de defensa requiere un enfoque diferente: la comunicación clara y la capacidad de persuasión son fundamentales." },
+    { slug: "delitos-federales-diferencias-justicia-ordinaria", title: "Delitos federales: diferencias con la justicia ordinaria", excerpt: "Qué delitos son federales, ante qué tribunales se tramitan y por qué necesitás un abogado especializado.", date: "Mayo 2026", tag: "Federal", content: "Los delitos federales son aquellos que afectan intereses del Estado Nacional. Incluyen narcotráfico (Ley 23.737), contrabando, lavado de activos (Ley 25.246), evasión fiscal, trata de personas. Se investigan ante los Juzgados Federales y se juzgan ante los Tribunales Orales Federales. La defensa en esta jurisdicción requiere experiencia específica." },
   ];
 
   const handleConsultaSubmit = () => {
@@ -209,6 +215,257 @@ export default function EstudioJuridico() {
     fontWeight: 700, fontSize: 15, display: "inline-flex", alignItems: "center", gap: 8,
     transition: "transform 0.2s, box-shadow 0.2s",
   };
+
+
+  // ═══ LANDING PAGES DATA ═══
+  const landingPages = {
+    "abogado-penal": {
+      metaTitle: "Abogado Penalista en Buenos Aires | Estudio García Pozzaglio",
+      metaDesc: "Abogado penalista en Buenos Aires. Excarcelaciones urgentes 24hs, defensa en juicio oral, delitos complejos. Consulta inmediata por WhatsApp.",
+      heroTitle: "Abogado Penalista en",
+      heroHighlight: "Buenos Aires",
+      heroDesc: "Defensa penal integral: excarcelaciones urgentes, delitos contra las personas, robos, estafas, juicio por jurados. Más de 15 años de experiencia en Justicia Penal Provincial, Nacional y Federal.",
+      urgentText: "¿Tenés un familiar detenido? Llamanos ahora — atención 24/7",
+      whatsappMsg: "Hola, necesito un abogado penalista urgente",
+      bullets: [
+        "Excarcelaciones y morigeraciones urgentes las 24 horas",
+        "Defensa en juicio oral y juicio por jurados",
+        "Delitos contra las personas, robos, hurtos y estafas",
+        "Delitos contra la propiedad y orden público",
+        "Amenazas, lesiones, violencia de género",
+        "Suspensión del juicio a prueba (probation)"
+      ],
+      faqs: [
+        { q: "¿Cuánto tarda una excarcelación?", a: "Iniciamos el trámite de inmediato. Según el caso, puede resolverse en 24 a 72 horas hábiles. Trabajamos las 24 horas para lograr la libertad lo antes posible." },
+        { q: "¿Puedo elegir mi propio abogado defensor?", a: "Sí, es tu derecho constitucional. Podés designar un abogado de confianza en cualquier momento del proceso penal, incluso si ya tenés un defensor oficial." },
+        { q: "¿Qué hago si la policía me detiene?", a: "No declares sin tu abogado presente. Tenés derecho a guardar silencio y a una llamada telefónica. Contactanos de inmediato al 11 3820-7360." }
+      ]
+    },
+    "abogado-accidentes-transito": {
+      metaTitle: "Abogado Accidentes de Tránsito Buenos Aires | García Pozzaglio",
+      metaDesc: "Abogado especialista en accidentes de tránsito en Buenos Aires. Reclamamos al seguro la indemnización que te corresponde. Consulta gratis.",
+      heroTitle: "Abogado de Accidentes de Tránsito en",
+      heroHighlight: "Buenos Aires",
+      heroDesc: "Reclamamos al seguro la máxima indemnización por tu accidente. No aceptes la primera oferta: nosotros negociamos por vos y, si es necesario, litigamos hasta obtener lo justo.",
+      urgentText: "¿Tuviste un accidente? No firmes nada sin consultar antes con un abogado",
+      whatsappMsg: "Hola, tuve un accidente de tránsito y necesito asesoramiento",
+      bullets: [
+        "Reclamo integral contra la aseguradora del responsable",
+        "Accidentes con lesiones graves e incapacidad",
+        "Atropello de peatones y ciclistas",
+        "Choques en cadena y accidentes en ruta",
+        "Accidentes de moto y transporte público",
+        "Cobro de indemnización por daño moral y lucro cesante"
+      ],
+      faqs: [
+        { q: "¿Cuánto puedo cobrar por mi accidente?", a: "El monto depende de la gravedad de las lesiones, los gastos médicos, el lucro cesante y el daño moral. Evaluamos tu caso sin cargo y te decimos cuánto podés reclamar." },
+        { q: "¿Qué plazo tengo para reclamar?", a: "El plazo de prescripción es de 3 años desde el accidente. Sin embargo, te recomendamos iniciar el reclamo lo antes posible para preservar la prueba." },
+        { q: "¿Puedo reclamar si el otro conductor no tiene seguro?", a: "Sí, podés reclamar directamente al conductor responsable. También podés usar tu propio seguro si incluye cobertura de terceros no asegurados." }
+      ]
+    },
+    "abogado-mala-praxis": {
+      metaTitle: "Abogado Mala Praxis Médica Buenos Aires | García Pozzaglio",
+      metaDesc: "Abogado especialista en mala praxis médica en Buenos Aires. Demandas por negligencia médica, errores de diagnóstico, cirugías fallidas. Consulta gratis.",
+      heroTitle: "Abogado de Mala Praxis Médica en",
+      heroHighlight: "Buenos Aires",
+      heroDesc: "Demandamos por negligencia médica: errores de diagnóstico, cirugías fallidas, infecciones intrahospitalarias, falta de consentimiento informado. Defendemos tus derechos como paciente.",
+      urgentText: "¿Fuiste víctima de negligencia médica? Consultá sin compromiso",
+      whatsappMsg: "Hola, creo que fui víctima de mala praxis médica",
+      bullets: [
+        "Error de diagnóstico o diagnóstico tardío",
+        "Negligencia quirúrgica y cirugías fallidas",
+        "Infecciones intrahospitalarias",
+        "Falta de consentimiento informado",
+        "Mala praxis odontológica y obstétrica",
+        "Responsabilidad de clínicas, sanatorios y obras sociales"
+      ],
+      faqs: [
+        { q: "¿Cómo sé si tengo un caso de mala praxis?", a: "Si un profesional de la salud no actuó con la diligencia debida y eso te causó un daño evitable, tenés un caso. Evaluamos tu situación sin cargo con nuestro equipo." },
+        { q: "¿Qué documentación necesito?", a: "Historia clínica, estudios médicos, recetas, informes y cualquier documento relacionado con tu atención. Te ayudamos a solicitarlos si no los tenés." },
+        { q: "¿Cuánto demora un juicio por mala praxis?", a: "Puede durar entre 2 y 4 años, pero muchos casos se resuelven en mediación. Buscamos la resolución más rápida y favorable para vos." }
+      ]
+    },
+    "abogado-danos-perjuicios": {
+      metaTitle: "Abogado Daños y Perjuicios Buenos Aires | García Pozzaglio",
+      metaDesc: "Abogado especialista en daños y perjuicios en Buenos Aires. Indemnizaciones por accidentes, negligencia, daño moral. Consulta sin cargo.",
+      heroTitle: "Abogado de Daños y Perjuicios en",
+      heroHighlight: "Buenos Aires",
+      heroDesc: "Reclamamos la indemnización integral que te corresponde: daño patrimonial, moral, psicológico, lucro cesante e incapacidad sobreviniente. Maximizamos tu compensación.",
+      urgentText: "¿Sufriste un daño injusto? Tenés derecho a ser indemnizado",
+      whatsappMsg: "Hola, necesito reclamar daños y perjuicios",
+      bullets: [
+        "Daño patrimonial y extrapatrimonial",
+        "Daño moral y daño psicológico",
+        "Lucro cesante y pérdida de chance",
+        "Incapacidad sobreviniente",
+        "Daños por productos defectuosos",
+        "Responsabilidad civil contractual y extracontractual"
+      ],
+      faqs: [
+        { q: "¿Qué rubros puedo reclamar?", a: "Daño emergente (gastos), lucro cesante (lo que dejaste de ganar), daño moral, daño psicológico, incapacidad sobreviniente y pérdida de chance, entre otros." },
+        { q: "¿Necesito ir a mediación antes de un juicio?", a: "Sí, en la mayoría de los casos la mediación previa es obligatoria. Muchos casos se resuelven en esta etapa, logrando un acuerdo favorable sin juicio." },
+        { q: "¿Cuánto puede tardar en cobrar?", a: "Si se llega a un acuerdo en mediación, puede ser en meses. Un juicio puede durar entre 2 y 4 años. Trabajamos para obtener el mejor resultado en el menor tiempo." }
+      ]
+    },
+    "abogado-delitos-federales": {
+      metaTitle: "Abogado Penal Federal Buenos Aires | García Pozzaglio",
+      metaDesc: "Abogado penalista federal en Buenos Aires. Defensa en narcotráfico, lavado de activos, contrabando, evasión fiscal. Atención urgente 24hs.",
+      heroTitle: "Abogado de Delitos Federales en",
+      heroHighlight: "Argentina",
+      heroDesc: "Defensa especializada en fuero federal: narcotráfico (Ley 23.737), lavado de activos, contrabando, evasión fiscal, trata de personas. Actuamos en todo el país ante Juzgados y Tribunales Federales.",
+      urgentText: "¿Investigado o detenido por un delito federal? Llamanos ahora",
+      whatsappMsg: "Hola, necesito un abogado para un caso en fuero federal",
+      bullets: [
+        "Narcotráfico y tenencia de estupefacientes (Ley 23.737)",
+        "Lavado de activos y dinero (Ley 25.246)",
+        "Contrabando y delitos aduaneros",
+        "Evasión fiscal y delitos tributarios",
+        "Trata de personas (Ley 26.364)",
+        "Delitos contra el orden constitucional"
+      ],
+      faqs: [
+        { q: "¿Qué diferencia hay entre justicia federal y ordinaria?", a: "La justicia federal interviene en delitos que afectan intereses del Estado Nacional o que involucran distintas jurisdicciones. Los procedimientos y plazos son diferentes." },
+        { q: "¿Pueden allanar mi domicilio sin orden judicial?", a: "Solo en casos de flagrancia o peligro inminente. Un allanamiento sin orden válida puede ser declarado nulo y toda la prueba obtenida queda invalidada." },
+        { q: "¿Qué hago si me citan a declarar como imputado?", a: "No declares sin abogado. Tenés derecho a negarte a declarar sin que eso sea usado en tu contra. Contactanos antes de la declaración." }
+      ]
+    }
+  };
+
+
+  
+  // ═══ LANDING & BLOG ROUTING ═══
+  useEffect(() => {
+    const path = window.location.pathname;
+    // Landing pages
+    Object.keys(landingPages).forEach(slug => {
+      if (path === "/" + slug || path === "/" + slug + "/") {
+        setLandingPage(slug);
+        document.title = landingPages[slug].metaTitle;
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute("content", landingPages[slug].metaDesc);
+      }
+    });
+    // Blog posts
+    if (path.startsWith("/blog/")) {
+      const slug = path.replace("/blog/", "").replace(/\/$/, "");
+      setBlogPost(slug);
+    }
+  }, []);
+
+  // ═══ BLOG POST PAGE ═══
+  if (blogPost) {
+    const post = blogPosts.find(p => p.slug === blogPost);
+    if (post) {
+      return (
+        <div style={{ background: BG_PRIMARY, minHeight: "100vh", color: "#fff", fontFamily: "'Georgia', 'Times New Roman', serif" }}>
+          <div style={{ position: "sticky", top: 0, zIndex: 50, background: "rgba(10,10,10,0.95)", backdropFilter: "blur(12px)", borderBottom: `1px solid ${BORDER}`, padding: "16px 24px", display: "flex", alignItems: "center", gap: 16 }}>
+            <button onClick={() => { setBlogPost(null); window.history.pushState(null, "", "/"); document.title = "Abogados en Buenos Aires | Estudio García Pozzaglio"; }}
+              style={{ background: "none", border: "none", color: GOLD, cursor: "pointer", fontSize: 14, display: "flex", alignItems: "center", gap: 6, fontFamily: "system-ui, sans-serif" }}>← Volver al sitio</button>
+          </div>
+          <article style={{ maxWidth: 700, margin: "0 auto", padding: "60px 24px" }}>
+            <span style={{ background: "rgba(201,168,76,0.12)", color: GOLD, padding: "4px 12px", borderRadius: 20, fontSize: 12, fontWeight: 600, fontFamily: "system-ui, sans-serif" }}>{post.tag}</span>
+            <h1 style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 700, color: "#fff", margin: "20px 0", lineHeight: 1.3, fontFamily: "system-ui, sans-serif" }}>{post.title}</h1>
+            <p style={{ color: TEXT_MUTED, fontSize: 13, marginBottom: 32, fontFamily: "system-ui, sans-serif" }}>{post.date} — Estudio García Pozzaglio</p>
+            <div style={{ color: "#ccc", fontSize: 16, lineHeight: 1.9, fontFamily: "system-ui, sans-serif" }}>{post.content}</div>
+            <div style={{ marginTop: 48, padding: 32, background: BG_CARD, borderRadius: 12, border: `1px solid ${BORDER}`, textAlign: "center" }}>
+              <h3 style={{ color: "#fff", fontSize: 20, fontWeight: 700, margin: "0 0 12px", fontFamily: "system-ui, sans-serif" }}>¿Necesitás asesoramiento sobre este tema?</h3>
+              <p style={{ color: TEXT_MUTED, fontSize: 14, marginBottom: 20, fontFamily: "system-ui, sans-serif" }}>Consultá sin compromiso con nuestro equipo de abogados</p>
+              <a href="https://wa.me/5491138207360?text=Hola%2C%20leí%20su%20artículo%20y%20necesito%20asesoramiento" target="_blank" rel="noopener noreferrer"
+                onClick={() => { if (window.gtag_report_conversion) window.gtag_report_conversion(); }}
+                style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#25D366", color: "#fff", padding: "14px 28px", borderRadius: 8, textDecoration: "none", fontWeight: 700, fontSize: 15, fontFamily: "system-ui, sans-serif" }}>
+                Consultar por WhatsApp
+              </a>
+            </div>
+          </article>
+        </div>
+      );
+    }
+  }
+
+  // ═══ LANDING PAGE RENDER ═══
+  if (landingPage && landingPages[landingPage]) {
+    const lp = landingPages[landingPage];
+    return (
+      <div style={{ background: BG_PRIMARY, minHeight: "100vh", color: "#fff", fontFamily: "'Georgia', 'Times New Roman', serif" }}>
+        <div style={{ position: "sticky", top: 0, zIndex: 50, background: "rgba(10,10,10,0.95)", backdropFilter: "blur(12px)", borderBottom: `1px solid ${BORDER}`, padding: "16px 24px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <button onClick={() => { setLandingPage(null); window.history.pushState(null, "", "/"); }}
+            style={{ background: "none", border: "none", color: GOLD, cursor: "pointer", fontSize: 14, fontFamily: "system-ui, sans-serif" }}>← Volver al sitio</button>
+          <a href="tel:+5491138207360" style={{ color: GOLD, textDecoration: "none", fontSize: 14, fontFamily: "system-ui, sans-serif", display: "flex", alignItems: "center", gap: 6 }}>
+            <Phone size={14} /> 11 3820-7360
+          </a>
+        </div>
+
+        <div style={{ background: "linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%)", padding: "10px 24px", textAlign: "center" }}>
+          <p style={{ color: "#fff", fontSize: 13, fontWeight: 600, margin: 0, fontFamily: "system-ui, sans-serif" }}>⚠️ {lp.urgentText}</p>
+        </div>
+
+        <section style={{ padding: "80px 24px", textAlign: "center", maxWidth: 800, margin: "0 auto" }}>
+          <h1 style={{ fontSize: "clamp(26px, 4vw, 42px)", fontWeight: 700, color: "#fff", margin: "0 0 24px", lineHeight: 1.3, fontFamily: "system-ui, sans-serif" }}>
+            {lp.heroTitle} <span style={{ color: GOLD }}>{lp.heroHighlight}</span>
+          </h1>
+          <p style={{ color: "#ccc", fontSize: "clamp(15px, 2vw, 18px)", lineHeight: 1.8, margin: "0 0 36px", fontFamily: "system-ui, sans-serif" }}>{lp.heroDesc}</p>
+          <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+            <a href={`https://wa.me/5491138207360?text=${encodeURIComponent(lp.whatsappMsg)}`} target="_blank" rel="noopener noreferrer"
+              onClick={() => { if (window.gtag_report_conversion) window.gtag_report_conversion(); }}
+              style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#25D366", color: "#fff", padding: "16px 32px", borderRadius: 8, textDecoration: "none", fontWeight: 700, fontSize: 16, fontFamily: "system-ui, sans-serif" }}>
+              Consultá por WhatsApp
+            </a>
+            <a href="tel:+5491138207360" style={{ display: "inline-flex", alignItems: "center", gap: 8, background: GOLD, color: BG_PRIMARY, padding: "16px 32px", borderRadius: 8, textDecoration: "none", fontWeight: 700, fontSize: 16, fontFamily: "system-ui, sans-serif" }}>
+              <Phone size={16} /> Llamar ahora
+            </a>
+          </div>
+        </section>
+
+        <section style={{ padding: "60px 24px", maxWidth: 800, margin: "0 auto" }}>
+          <h2 style={{ fontSize: 24, fontWeight: 700, color: "#fff", marginBottom: 32, textAlign: "center", fontFamily: "system-ui, sans-serif" }}>¿Qué hacemos por vos?</h2>
+          <div style={{ display: "grid", gap: 16 }}>
+            {lp.bullets.map((b, i) => (
+              <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 12, padding: 20, background: BG_CARD, borderRadius: 10, border: `1px solid ${BORDER}` }}>
+                <CheckCircle size={20} color={GOLD} style={{ flexShrink: 0, marginTop: 2 }} />
+                <span style={{ color: "#ccc", fontSize: 15, lineHeight: 1.6, fontFamily: "system-ui, sans-serif" }}>{b}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section style={{ padding: "60px 24px", maxWidth: 800, margin: "0 auto" }}>
+          <h2 style={{ fontSize: 24, fontWeight: 700, color: "#fff", marginBottom: 32, textAlign: "center", fontFamily: "system-ui, sans-serif" }}>Preguntas Frecuentes</h2>
+          {lp.faqs.map((faq, i) => (
+            <div key={i} style={{ marginBottom: 12, background: BG_CARD, borderRadius: 10, border: `1px solid ${BORDER}`, overflow: "hidden" }}>
+              <button onClick={() => setLpFaqOpen(lpFaqOpen === i ? null : i)}
+                style={{ width: "100%", padding: "18px 20px", background: "none", border: "none", color: "#fff", fontSize: 15, fontWeight: 600, textAlign: "left", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", fontFamily: "system-ui, sans-serif" }}>
+                {faq.q}
+                {lpFaqOpen === i ? <ChevronUp size={18} color={GOLD} /> : <ChevronDown size={18} color={GOLD} />}
+              </button>
+              {lpFaqOpen === i && (
+                <div style={{ padding: "0 20px 18px", color: TEXT_MUTED, fontSize: 14, lineHeight: 1.7, fontFamily: "system-ui, sans-serif" }}>{faq.a}</div>
+              )}
+            </div>
+          ))}
+        </section>
+
+        <section style={{ padding: "60px 24px", textAlign: "center", background: BG_CARD }}>
+          <h2 style={{ fontSize: 24, fontWeight: 700, color: "#fff", margin: "0 0 16px", fontFamily: "system-ui, sans-serif" }}>¿Listo para resolver tu caso?</h2>
+          <p style={{ color: TEXT_MUTED, fontSize: 15, marginBottom: 28, fontFamily: "system-ui, sans-serif" }}>Consulta inicial sin cargo. Respondemos en minutos.</p>
+          <a href={`https://wa.me/5491138207360?text=${encodeURIComponent(lp.whatsappMsg)}`} target="_blank" rel="noopener noreferrer"
+            onClick={() => { if (window.gtag_report_conversion) window.gtag_report_conversion(); }}
+            style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#25D366", color: "#fff", padding: "16px 36px", borderRadius: 8, textDecoration: "none", fontWeight: 700, fontSize: 16, fontFamily: "system-ui, sans-serif" }}>
+            Escribinos por WhatsApp
+          </a>
+        </section>
+
+        <footer style={{ padding: "40px 24px", textAlign: "center", borderTop: `1px solid ${BORDER}` }}>
+          <p style={{ color: TEXT_MUTED, fontSize: 13, fontFamily: "system-ui, sans-serif" }}>© 2026 Estudio Jurídico García Pozzaglio — Av. Juan Domingo Perón 3274, Local 25 — Los Polvorines, Buenos Aires</p>
+        </footer>
+
+        <a href={`https://wa.me/5491138207360?text=${encodeURIComponent(lp.whatsappMsg)}`} target="_blank" rel="noopener noreferrer"
+          style={{ position: "fixed", bottom: 24, right: 24, zIndex: 100, display: "flex", alignItems: "center", gap: 10, background: "#25D366", padding: "14px 22px", borderRadius: 50, boxShadow: "0 4px 20px rgba(37,211,102,0.5)", textDecoration: "none", animation: "pulse-wa 2s infinite" }}>
+          <svg viewBox="0 0 32 32" width="24" height="24" fill="#fff"><path d="M16.004 2.667A13.28 13.28 0 0 0 2.667 15.924a13.17 13.17 0 0 0 1.795 6.65L2.667 29.333l7.003-1.835A13.28 13.28 0 0 0 16.004 29.2c7.352 0 13.33-5.97 13.33-13.276 0-7.307-5.978-13.257-13.33-13.257Z"/></svg>
+          <span style={{ color: "#fff", fontWeight: 700, fontSize: 15, fontFamily: "system-ui, sans-serif" }}>Consultá ahora</span>
+        </a>
+      </div>
+    );
+  }
 
   // Subpages for interactive services
   if (activePage) {
@@ -416,6 +673,7 @@ export default function EstudioJuridico() {
       </nav>
 
       <style>{`
+        @keyframes pulse-wa { 0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); } 50% { box-shadow: 0 4px 30px rgba(37,211,102,0.8); } }
         @media (min-width: 769px) { .show-mobile { display: none !important; } }
         @media (max-width: 768px) { .hidden-mobile { display: none !important; } .show-mobile { display: block !important; } }
         input:focus, textarea:focus, select:focus { border-color: ${GOLD} !important; }
@@ -436,12 +694,12 @@ export default function EstudioJuridico() {
             DEFENSA PENAL · DERECHO CIVIL · ASESORAMIENTO INTEGRAL
           </p>
           <h1 style={{ fontSize: "clamp(22px, 3.5vw, 36px)", fontWeight: 400, color: "#fff", margin: "0 0 24px", lineHeight: 1.5, fontFamily: "system-ui, sans-serif" }}>
-            Su causa merece una <span style={{ color: GOLD, fontWeight: 700 }}>defensa estratégica</span>,{" "}
-            respaldada por profesionales con experiencia en la{" "}
-            <span style={{ color: GOLD, fontWeight: 700 }}>Justicia Provincial, Nacional y Federal</span>.
+            Abogados en Buenos Aires:{" "}
+            <span style={{ color: GOLD, fontWeight: 700 }}>defensa penal, accidentes, mala praxis</span>{" "}
+            y <span style={{ color: GOLD, fontWeight: 700 }}>daños y perjuicios</span>.
           </h1>
           <p style={{ color: TEXT_MUTED, fontSize: "clamp(14px, 1.8vw, 17px)", maxWidth: 650, margin: "0 auto 16px", lineHeight: 1.8, fontFamily: "system-ui, sans-serif" }}>
-            En García & Pozzaglio trabajamos con compromiso, transparencia y dedicación para proteger sus derechos. Cada caso es único y merece una atención personalizada con resultados concretos.
+            Atención inmediata las 24 horas. Excarcelaciones urgentes, reclamos al seguro por accidentes, indemnizaciones por mala praxis y daños. Resultados concretos con atención personalizada.
           </p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap", marginBottom: 40, marginTop: 32 }}>
             {[
@@ -455,14 +713,20 @@ export default function EstudioJuridico() {
               </div>
             ))}
           </div>
-          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-            <button style={btnGold} onClick={() => setActivePage("consulta")}>
-              <MessageSquare size={16} /> Solicitá una consulta
-            </button>
-            <button style={{ ...btnGold, background: "transparent", border: `1px solid ${GOLD}`, color: GOLD }} onClick={() => scrollTo("areas")}>
-              Conocé nuestras áreas <ArrowRight size={16} />
-            </button>
+          <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+            <a href="https://wa.me/5491138207360?text=Hola%2C%20necesito%20asesoramiento%20legal" target="_blank" rel="noopener noreferrer"
+              onClick={() => { if (window.gtag_report_conversion) window.gtag_report_conversion(); }}
+              style={{ ...btnGold, background: "#25D366", color: "#fff", textDecoration: "none", fontSize: "clamp(14px, 2vw, 16px)", padding: "14px 28px" }}>
+              <svg viewBox="0 0 32 32" width="18" height="18" fill="#fff"><path d="M16.004 2.667A13.28 13.28 0 0 0 2.667 15.924a13.17 13.17 0 0 0 1.795 6.65L2.667 29.333l7.003-1.835A13.28 13.28 0 0 0 16.004 29.2c7.352 0 13.33-5.97 13.33-13.276 0-7.307-5.978-13.257-13.33-13.257Z"/></svg>
+              Escribinos por WhatsApp
+            </a>
+            <a href="tel:+5491138207360" style={{ ...btnGold, textDecoration: "none" }}>
+              <Phone size={16} /> Llamar ahora
+            </a>
           </div>
+          <p style={{ color: TEXT_MUTED, fontSize: 13, marginTop: 16, fontFamily: "system-ui, sans-serif" }}>
+            Atención urgente 24/7 — Tel: 11 3820-7360
+          </p>
         </div>
       </section>
 
@@ -724,7 +988,8 @@ export default function EstudioJuridico() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20 }}>
             {blogPosts.map((post, i) => (
-              <article key={i} style={{ background: BG_PRIMARY, border: `1px solid ${BORDER}`, borderRadius: 12, padding: 28, transition: "border-color 0.3s" }}
+              <article key={i} onClick={() => { setBlogPost(post.slug); window.history.pushState(null, "", `/blog/${post.slug}`); document.title = post.title + " | García Pozzaglio"; }}
+                style={{ background: BG_PRIMARY, border: `1px solid ${BORDER}`, borderRadius: 12, padding: 28, transition: "border-color 0.3s", cursor: "pointer" }}
                 onMouseOver={e => e.currentTarget.style.borderColor = GOLD_DIM} onMouseOut={e => e.currentTarget.style.borderColor = BORDER}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
                   <span style={{ background: `rgba(201,168,76,0.12)`, color: GOLD, padding: "4px 10px", borderRadius: 20, fontSize: 11, fontWeight: 600, fontFamily: "system-ui, sans-serif" }}>{post.tag}</span>
@@ -732,6 +997,7 @@ export default function EstudioJuridico() {
                 </div>
                 <h3 style={{ color: "#fff", fontSize: 17, fontWeight: 700, margin: "0 0 10px", lineHeight: 1.3 }}>{post.title}</h3>
                 <p style={{ color: TEXT_MUTED, fontSize: 14, lineHeight: 1.6, margin: 0, fontFamily: "system-ui, sans-serif" }}>{post.excerpt}</p>
+                <span style={{ color: GOLD, fontSize: 13, fontWeight: 600, marginTop: 12, display: "inline-block", fontFamily: "system-ui, sans-serif" }}>Leer más →</span>
               </article>
             ))}
           </div>
@@ -869,21 +1135,23 @@ export default function EstudioJuridico() {
       </footer>
 
       {/* ═══ WHATSAPP FLOATING BUTTON ═══ */}
-      <a href="https://wa.me/5491138207360" target="_blank" rel="noopener noreferrer"
+      <a href="https://wa.me/5491138207360?text=Hola%2C%20necesito%20asesoramiento%20legal" target="_blank" rel="noopener noreferrer"
        onClick={() => { if (window.gtag_report_conversion) window.gtag_report_conversion(); }}
         style={{
           position: "fixed", bottom: 24, right: 24, zIndex: 100,
-          width: 60, height: 60, borderRadius: "50%",
-          background: "#25D366", display: "flex", alignItems: "center", justifyContent: "center",
-          boxShadow: "0 4px 16px rgba(37,211,102,0.4)", cursor: "pointer",
+          display: "flex", alignItems: "center", gap: 10,
+          background: "#25D366", padding: "14px 22px", borderRadius: 50,
+          boxShadow: "0 4px 20px rgba(37,211,102,0.5)", cursor: "pointer",
           transition: "transform 0.2s, box-shadow 0.2s", textDecoration: "none",
+          animation: "pulse-wa 2s infinite",
         }}
-        onMouseOver={e => { e.currentTarget.style.transform = "scale(1.1)"; e.currentTarget.style.boxShadow = "0 6px 24px rgba(37,211,102,0.5)"; }}
-        onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(37,211,102,0.4)"; }}
+        onMouseOver={e => { e.currentTarget.style.transform = "scale(1.05)"; e.currentTarget.style.boxShadow = "0 6px 28px rgba(37,211,102,0.6)"; }}
+        onMouseOut={e => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "0 4px 20px rgba(37,211,102,0.5)"; }}
       >
-        <svg viewBox="0 0 32 32" width="32" height="32" fill="#fff">
+        <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff">
           <path d="M16.004 2.667A13.28 13.28 0 0 0 2.667 15.924a13.17 13.17 0 0 0 1.795 6.65L2.667 29.333l7.003-1.835A13.28 13.28 0 0 0 16.004 29.2c7.352 0 13.33-5.97 13.33-13.276 0-7.307-5.978-13.257-13.33-13.257Zm0 24.29a11.01 11.01 0 0 1-5.612-1.537l-.403-.239-4.177 1.095 1.114-4.07-.263-.418A10.93 10.93 0 0 1 4.95 15.924c0-6.09 4.96-11.043 11.054-11.043 6.094 0 11.047 4.953 11.047 11.043 0 6.097-4.953 11.033-11.047 11.033Zm6.063-8.27c-.332-.167-1.97-.971-2.276-1.082-.306-.111-.528-.167-.75.167-.222.333-.862 1.082-1.056 1.305-.195.222-.389.25-.722.083-.333-.167-1.405-.518-2.676-1.65-.989-.881-1.656-1.97-1.85-2.303-.195-.333-.021-.514.146-.68.15-.148.333-.389.5-.583.167-.195.222-.333.333-.556.111-.222.056-.417-.028-.583-.083-.167-.75-1.806-1.028-2.472-.27-.649-.546-.562-.75-.572-.194-.009-.417-.011-.639-.011a1.225 1.225 0 0 0-.889.417c-.306.333-1.166 1.138-1.166 2.777 0 1.639 1.194 3.222 1.36 3.444.167.222 2.35 3.59 5.695 5.034.796.344 1.417.549 1.902.703.799.254 1.526.218 2.1.132.641-.096 1.971-.806 2.249-1.583.278-.778.278-1.445.194-1.584-.083-.139-.305-.222-.638-.389Z"/>
         </svg>
+        <span style={{ color: "#fff", fontWeight: 700, fontSize: 15, fontFamily: "system-ui, sans-serif" }}>Consultá ahora</span>
       </a>
     </div>
   );
