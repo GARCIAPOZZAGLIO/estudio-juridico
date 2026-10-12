@@ -11,13 +11,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "react-snap": "^1.23.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "react-snap",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -26,37 +24,6 @@
       "react-app",
       "react-app/jest"
     ]
-  },
-  "reactSnap": {
-    "include": [
-      "/",
-      "/abogado-penal",
-      "/abogado-accidentes-transito",
-      "/abogado-mala-praxis",
-      "/abogado-danos-perjuicios",
-      "/abogado-delitos-federales",
-      "/abogado-penal-san-martin",
-      "/abogado-penal-la-matanza",
-      "/abogado-accidentes-transito-zona-norte",
-      "/abogado-accidentes-transito-la-matanza",
-      "/abogado-penal-tigre",
-      "/abogado-danos-perjuicios-zona-norte",
-      "/blog/que-hacer-si-te-detienen",
-      "/blog/como-reclamar-seguro-accidente-transito",
-      "/blog/mala-praxis-medica-como-reclamar",
-      "/blog/danos-perjuicios-que-puedo-reclamar",
-      "/blog/juicio-por-jurados-provincia-buenos-aires",
-      "/blog/delitos-federales-diferencias-justicia-ordinaria",
-      "/blog/excarcelacion-urgente-buenos-aires",
-      "/blog/accidente-moto-que-hacer",
-      "/blog/violencia-familiar-denuncia",
-      "/blog/prescripcion-delitos-penales-argentina",
-      "/blog/indemnizacion-accidente-laboral",
-      "/blog/estafa-virtual-como-denunciar"
-    ],
-    "skipThirdPartyRequests": true,
-    "headless": true,
-    "puppeteerArgs": ["--no-sandbox", "--disable-setuid-sandbox"]
   },
   "browserslist": {
     "production": [
