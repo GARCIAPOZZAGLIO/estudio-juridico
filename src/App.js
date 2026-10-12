@@ -328,6 +328,139 @@ export default function EstudioJuridico() {
         { q: "¿Pueden allanar mi domicilio sin orden judicial?", a: "Solo en casos de flagrancia o peligro inminente. Un allanamiento sin orden válida puede ser declarado nulo y toda la prueba obtenida queda invalidada." },
         { q: "¿Qué hago si me citan a declarar como imputado?", a: "No declares sin abogado. Tenés derecho a negarte a declarar sin que eso sea usado en tu contra. Contactanos antes de la declaración." }
       ]
+    },
+    // ── LANDING PAGES POR ZONA GEOGRÁFICA ──
+    "abogado-penal-san-martin": {
+      metaTitle: "Abogado Penalista en San Martín | Estudio García Pozzaglio",
+      metaDesc: "Abogado penalista en San Martín, Buenos Aires. Excarcelaciones urgentes 24hs, defensa penal en Departamento Judicial San Martín. Consulta inmediata.",
+      heroTitle: "Abogado Penalista en",
+      heroHighlight: "San Martín",
+      heroDesc: "Defensa penal en el Departamento Judicial San Martín. Excarcelaciones urgentes, juicio oral, delitos complejos. Atención inmediata en San Martín, Villa Ballester, José León Suárez, San Andrés y alrededores.",
+      urgentText: "¿Familiar detenido en la zona de San Martín? Llamanos ahora — 24/7",
+      whatsappMsg: "Hola, necesito un abogado penalista en San Martín",
+      bullets: [
+        "Excarcelaciones urgentes en comisarías de San Martín",
+        "Defensa ante Juzgados de Garantías del Dpto. Judicial San Martín",
+        "Juicio oral ante Tribunales en lo Criminal de San Martín",
+        "Juicio por jurados (Ley 14.543)",
+        "Delitos contra las personas, robos, hurtos y estafas",
+        "Suspensión del juicio a prueba (probation)"
+      ],
+      faqs: [
+        { q: "¿Dónde quedan los tribunales de San Martín?", a: "Los tribunales del Departamento Judicial San Martín están ubicados en Av. 101 N° 2635, General San Martín. Atendemos casos en todo el departamento judicial." },
+        { q: "¿Atienden en comisarías de la zona?", a: "Sí, nos presentamos en cualquier comisaría de San Martín, Villa Ballester, José León Suárez, San Andrés y localidades cercanas. Atención 24 horas." },
+        { q: "¿Cuánto cobran la consulta?", a: "La primera consulta es sin cargo. Evaluamos tu caso y te explicamos las opciones legales sin compromiso." }
+      ]
+    },
+    "abogado-penal-la-matanza": {
+      metaTitle: "Abogado Penalista en La Matanza | Estudio García Pozzaglio",
+      metaDesc: "Abogado penalista en La Matanza, Buenos Aires. Defensa penal, excarcelaciones urgentes, juicio por jurados. Atención 24hs en Ramos Mejía, San Justo, Isidro Casanova.",
+      heroTitle: "Abogado Penalista en",
+      heroHighlight: "La Matanza",
+      heroDesc: "Defensa penal integral en el Departamento Judicial La Matanza. Excarcelaciones, juicio por jurados, delitos graves. Atención inmediata en Ramos Mejía, San Justo, Isidro Casanova, González Catán y toda La Matanza.",
+      urgentText: "¿Detenido en La Matanza? Nos presentamos en la comisaría — 24/7",
+      whatsappMsg: "Hola, necesito un abogado penalista en La Matanza",
+      bullets: [
+        "Excarcelaciones urgentes en comisarías de La Matanza",
+        "Defensa ante Juzgados de Garantías de La Matanza",
+        "Juicio por jurados ante TOC La Matanza",
+        "Homicidios, robos agravados, delitos sexuales",
+        "Amenazas, lesiones, violencia familiar",
+        "Asistencia en la UFI de turno las 24 horas"
+      ],
+      faqs: [
+        { q: "¿Cubren todas las localidades de La Matanza?", a: "Sí, atendemos en todo el partido: Ramos Mejía, San Justo, Isidro Casanova, González Catán, Laferrere, Villa Luzuriaga, Tapiales, Ciudad Evita y más." },
+        { q: "¿Tienen experiencia en juicio por jurados?", a: "Sí, contamos con amplia experiencia en juicios por jurados (Ley 14.543) ante los Tribunales en lo Criminal de La Matanza." },
+        { q: "¿Se puede pedir la excarcelación el mismo día?", a: "Sí, iniciamos el trámite de inmediato. Según las circunstancias del caso, puede resolverse en 24 a 72 horas hábiles." }
+      ]
+    },
+    "abogado-accidentes-transito-zona-norte": {
+      metaTitle: "Abogado Accidentes de Tránsito Zona Norte | García Pozzaglio",
+      metaDesc: "Abogado de accidentes de tránsito en zona norte de Buenos Aires. Reclamos al seguro, indemnizaciones por accidentes en Panamericana, ruta 8, ruta 9. Consulta gratis.",
+      heroTitle: "Abogado de Accidentes de Tránsito en",
+      heroHighlight: "Zona Norte",
+      heroDesc: "Especialistas en reclamos por accidentes de tránsito en zona norte: Panamericana, Ruta 8, Ruta 9, Camino del Buen Ayre. Reclamamos al seguro la indemnización máxima por tu accidente en San Martín, Tigre, San Isidro, Vicente López y alrededores.",
+      urgentText: "¿Tuviste un accidente en zona norte? No firmes nada — consultá primero",
+      whatsappMsg: "Hola, tuve un accidente de tránsito en zona norte y necesito asesoramiento",
+      bullets: [
+        "Accidentes en Panamericana, Ruta 8 y Ruta 9",
+        "Reclamo integral contra la aseguradora",
+        "Atropello de peatones y ciclistas",
+        "Accidentes de moto y colectivo",
+        "Lesiones graves e incapacidad sobreviniente",
+        "Cobro de indemnización por daño moral y lucro cesante"
+      ],
+      faqs: [
+        { q: "¿Puedo reclamar si el accidente fue en la Panamericana?", a: "Sí, reclamamos por accidentes en cualquier vía de zona norte. En autopistas como Panamericana también puede haber responsabilidad del concesionario vial." },
+        { q: "¿Cuánto tarda el cobro de la indemnización?", a: "Si se llega a un acuerdo extrajudicial, puede ser en 3 a 6 meses. Un juicio puede durar 2 a 4 años. Siempre buscamos la vía más rápida." },
+        { q: "¿Qué hago justo después del accidente?", a: "Hacé la denuncia policial, tomá fotos, recopiá datos de testigos y del otro conductor. No firmes nada de la aseguradora sin consultarnos antes." }
+      ]
+    },
+    "abogado-accidentes-transito-la-matanza": {
+      metaTitle: "Abogado Accidentes de Tránsito La Matanza | García Pozzaglio",
+      metaDesc: "Abogado de accidentes de tránsito en La Matanza. Reclamos al seguro por accidentes en Camino de Cintura, Ruta 3, Ruta 21. Indemnización máxima. Consulta gratis.",
+      heroTitle: "Abogado de Accidentes de Tránsito en",
+      heroHighlight: "La Matanza",
+      heroDesc: "Reclamamos la indemnización máxima por accidentes en La Matanza: Camino de Cintura, Ruta 3, Ruta 21, Av. Crovara. Atendemos en Ramos Mejía, San Justo, Isidro Casanova, González Catán y todo el partido.",
+      urgentText: "¿Accidente en La Matanza? No aceptes la oferta del seguro sin consultar",
+      whatsappMsg: "Hola, tuve un accidente de tránsito en La Matanza",
+      bullets: [
+        "Accidentes en Camino de Cintura, Ruta 3 y Ruta 21",
+        "Reclamo contra la aseguradora del responsable",
+        "Accidentes con lesiones graves e incapacidad",
+        "Atropello de peatones en zonas urbanas",
+        "Accidentes de moto y transporte público",
+        "Daño moral, lucro cesante e incapacidad"
+      ],
+      faqs: [
+        { q: "¿Cuánto puedo cobrar por un accidente en La Matanza?", a: "Depende de la gravedad de las lesiones, gastos médicos, lucro cesante y daño moral. Evaluamos tu caso sin cargo y te decimos cuánto podés reclamar." },
+        { q: "¿Qué pasa si el responsable se dio a la fuga?", a: "Podés iniciar el reclamo igualmente. Si se identifica al responsable, se reclama a su seguro. Si no, hay otras vías legales que podemos evaluar." },
+        { q: "¿Atienden accidentes de moto?", a: "Sí, los accidentes de moto suelen tener lesiones más graves y por lo tanto indemnizaciones más altas. Tenemos amplia experiencia en estos casos." }
+      ]
+    },
+    "abogado-penal-tigre": {
+      metaTitle: "Abogado Penalista en Tigre | Estudio García Pozzaglio",
+      metaDesc: "Abogado penalista en Tigre, Buenos Aires. Defensa penal, excarcelaciones urgentes 24hs. Atención en Tigre, Don Torcuato, Pacheco y zona norte.",
+      heroTitle: "Abogado Penalista en",
+      heroHighlight: "Tigre",
+      heroDesc: "Defensa penal en la jurisdicción de Tigre. Excarcelaciones urgentes, delitos náuticos, robos, estafas. Atención inmediata en Tigre centro, Don Torcuato, General Pacheco, El Talar y alrededores.",
+      urgentText: "¿Detenido en la zona de Tigre? Llamanos ahora — atención 24/7",
+      whatsappMsg: "Hola, necesito un abogado penalista en Tigre",
+      bullets: [
+        "Excarcelaciones urgentes en comisarías de Tigre",
+        "Defensa en Juzgados de Garantías de San Isidro (jurisdicción Tigre)",
+        "Delitos náuticos y en zona de islas",
+        "Robos, hurtos, estafas y amenazas",
+        "Violencia familiar y de género",
+        "Suspensión del juicio a prueba"
+      ],
+      faqs: [
+        { q: "¿Los casos de Tigre se tramitan en San Isidro?", a: "Sí, Tigre pertenece al Departamento Judicial San Isidro. Los casos penales se tramitan ante los juzgados de garantías y tribunales de esa jurisdicción." },
+        { q: "¿Atienden casos de delitos náuticos?", a: "Sí, tenemos experiencia en casos vinculados a la zona de islas y el río. Estos casos pueden ser de jurisdicción provincial o federal según las circunstancias." },
+        { q: "¿Pueden ir a la comisaría en horario nocturno?", a: "Sí, atendemos urgencias las 24 horas, los 365 días. Nos presentamos en la comisaría donde esté detenida la persona." }
+      ]
+    },
+    "abogado-danos-perjuicios-zona-norte": {
+      metaTitle: "Abogado Daños y Perjuicios Zona Norte | García Pozzaglio",
+      metaDesc: "Abogado de daños y perjuicios en zona norte de Buenos Aires. Indemnizaciones por accidentes, negligencia, mala praxis. Consulta sin cargo.",
+      heroTitle: "Abogado de Daños y Perjuicios en",
+      heroHighlight: "Zona Norte",
+      heroDesc: "Reclamamos indemnizaciones por daños y perjuicios en zona norte de Buenos Aires. Accidentes, negligencia médica, productos defectuosos, daño moral. Atención en San Martín, San Isidro, Tigre, Vicente López, Malvinas Argentinas.",
+      urgentText: "¿Sufriste un daño injusto en zona norte? Tenés derecho a ser indemnizado",
+      whatsappMsg: "Hola, necesito reclamar daños y perjuicios en zona norte",
+      bullets: [
+        "Daño patrimonial y extrapatrimonial",
+        "Daño moral y daño psicológico",
+        "Lucro cesante y pérdida de chance",
+        "Incapacidad sobreviniente",
+        "Responsabilidad civil por accidentes",
+        "Daños por productos y servicios defectuosos"
+      ],
+      faqs: [
+        { q: "¿Dónde se presenta la demanda?", a: "Generalmente en el juzgado civil del lugar donde ocurrió el hecho o donde tiene domicilio el demandado. Te asesoramos sobre la mejor estrategia." },
+        { q: "¿Cuánto cuesta iniciar un reclamo?", a: "La primera consulta es sin cargo. Evaluamos tu caso y te explicamos los costos y las posibilidades de éxito antes de avanzar." },
+        { q: "¿Puedo reclamar daño moral además del patrimonial?", a: "Sí, el daño moral es un rubro indemnizatorio autónomo. Comprende el sufrimiento, angustia y afectación emocional causada por el hecho dañoso." }
+      ]
     }
   };
 
